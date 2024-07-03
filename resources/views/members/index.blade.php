@@ -7,6 +7,9 @@
 
 @section('content')
     <div class="container">
+        <div class="add-new" style="display:flex; justify-content: flex-end;">
+            <a class = "btn btn-primary" href="{{route('members_create')}}">Add Member</a>
+        </div>
         <table  id="members-list-table" class="display nowrap" style = "width:100%">
             <thead>
                 <tr>

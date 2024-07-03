@@ -9,4 +9,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 Route::get('/members', [App\Http\Controllers\MembersController::class, 'index'])->name('members_index');
+Route::get('/members/create', [App\Http\Controllers\MembersController::class, 'create'])->name('members_create');
+Route::post('/members', [App\Http\Controllers\MembersController::class, 'store'])->name('members_store');
+Route::get('/members/{id}', [App\Http\Controllers\MembersController::class, 'edit'])->name('members_edit');
+Route::put('/members/{id}', [App\Http\Controllers\MembersController::class, 'update'])->name('members_update');
+Route::delete('/members', [App\Http\Controllers\MembersController::class, 'destroy'])->name('members_destroy');
