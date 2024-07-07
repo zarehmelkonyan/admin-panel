@@ -3,6 +3,14 @@
 @section('head')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <style>
+        .actions-content{
+            display: flex;
+        }
+        .actions-content a{
+            margin-right: 5px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -37,9 +45,13 @@
                         <td>{{$member->age}}</td>
                         <td>{{$member->salary}}</td>
                         <td>{{$member->started_at}}</td>
-                        <td>
-                           <button class="btn btn-sm btn-primary">Edit</button>
-                           <button class="btn btn-sm btn-danger">Delete</button>
+                        <td class="actions-content">
+                           <a href="{{route('members_edit', ['id' => $member->id])}}" class="btn btn-sm btn-primary">Edit</a>
+                           <form action="{{route('members_destroy', ['id' => $member->id])}}" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" name="_method" value="DELETE" >
+                                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                           </form>
                         </td>
                     </tr>
                 @endforeach
@@ -47,6 +59,8 @@
         </table>
     </div>
     <script>
-        new DataTable('#members-list-table');
+        $(document).ready(() => {
+            $('#members-list-table').DataTable({});
+        })
     </script>
 @endsection
