@@ -1,0 +1,10 @@
+ .actions-content {
+     display: flex;
+ }
+
+ .actions-content a {
+     margin-right: 5px;
+ }
+ .dt-length label{
+    margin-left: 10px;
+ }

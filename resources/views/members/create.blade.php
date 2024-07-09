@@ -1,25 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <style>
-        .form-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .col {
-            max-width: 48%;
-            margin-right: 10px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        .submit-btn-content{
-            display:flex;
-            justify-content: flex-end;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/member_create.css">
 @endsection
 
 @section('content')
