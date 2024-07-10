@@ -19,6 +19,28 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @yield('head')
     <style>
+        body{
+            background: #474e55;
+            color: white;
+        }
+        .bg-white{
+            background-color: #3f454b!important;
+        }
+        .text_black{
+            color: white !important;
+        }
+        .navbar-brand{
+            color: white;
+        }
+        .nav-link{
+            color: white;
+        }
+        .card{
+            background: #50575f!important;
+        }
+        .form-control{
+            background: #bec0c3;
+        }
         footer {
             position: absolute;
             bottom: 20px;
@@ -45,8 +67,6 @@
 
         .sidebar.collapsed {
             width: 50px;
-            /* Collapsed sidebar width */
-            overflow-x: hidden;
         }
 
         .sidebar .avatar {
@@ -91,11 +111,10 @@
 
         .sidebar-toggle {
             position: absolute;
-            top: 10px;
+            top: 0;
             right: -20px;
             background-color: #343a40;
             border: none;
-            border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             color: #fff;
             padding: 10px;
@@ -176,19 +195,21 @@
                 </div>
             </div>
         </nav>
-        <div class="sidebar" id="sidebar">
-            <div class="text-center" id="sidebar-content">
-                <div class="avatar">
-                    <img src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png" alt="
-                        User Avatar">
+        @if(Auth::user())
+            <div class="sidebar" id="sidebar">
+                <div class="text-center" id="sidebar-content">
+                    <div class="avatar">
+                        <img src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png" alt="
+                            User Avatar">
+                    </div>
+                    <h5>Name: {{Auth::user()->name}}</h5>
+                    <p class="capitiliaze">Role: {{Auth::user()->role}}</p>
                 </div>
-                <h5>Name: {{Auth::user()->name}}</h5>
-                <p class="capitiliaze">Role: {{Auth::user()->role}}</p>
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <button class="sidebar-toggle" onclick="toggleSidebar()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>

@@ -85,6 +85,7 @@
                 </div>
                 <div class="col">
                     <div class="col-sm-12 submit-btn-content">
+                        <a href="{{route('members_index')}}" class="btn btn-sm btn-primary back-button">Back</a>
                         <input type="submit" class="btn btn-sm btn-success" value="Create">
                     </div>                 
                 </div>
